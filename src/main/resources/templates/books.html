@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <table>
+            <tr>
+                <th>ID</th>
+                <th>TITLE</th>
+                <th>ISBN</th>
+                <th>AUTHOR</th>
+            </tr>
+            <!--Posso scrivere anche th:text="${book.getId}"-->
+            <tr th:each="book : ${books}">
+                <td th:text="${book.id}">123</td>
+                <td th:text="${book.title}">Title example</td>
+                <td th:text="${book.isbn}">123-asd</td>
+                <td th:text="${book.author.getName()}">Carlo</td>
+            </tr>
+    </table>
+</body>
+
+</html>

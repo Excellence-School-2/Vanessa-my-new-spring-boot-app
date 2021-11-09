@@ -18,7 +18,7 @@ public class DataBootstrap implements CommandLineRunner{
     private final BookRepository bookRepository;
     //Costruttore per assegnare il repository
     //Sarà spring boot a sapere che oggetto passare a ciò
-   // @Autowired
+   //non ho bisogno di @Autowired perchè ho un buon costruttore
     public DataBootstrap(AuthorRespository authorRespository, BookRepository bookRepository) {
         this.authorRespository = authorRespository;
         this.bookRepository= bookRepository;
@@ -28,7 +28,6 @@ public class DataBootstrap implements CommandLineRunner{
         //Il run viene eseguit all avvio per popolare la tabella
 
         Author a1 = new Author("Carlo","Carli");
-        
         Book l1 = new Book("Primo Libro", "123-abc");
         l1.setAuthor(a1);
 
@@ -38,8 +37,10 @@ public class DataBootstrap implements CommandLineRunner{
         authorRespository.save(a1);
         bookRepository.save(l1);
 
+        Book l2 = new Book("Secondo Libro", "324-abc");
+        l2.setAuthor(a1);
         
-        
+        bookRepository.save(l2);
     }
     
 
